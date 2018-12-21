@@ -37,24 +37,34 @@
   -moz-appearance: none;
   appearance: none;
 
-  // Chrome
+  /* Chrome */
   &::-webkit-slider-thumb {
-    @include thumb;
+    width: 4px;
+    height: 4px;
+    cursor: $cursor-click-url, pointer;
+    background: #fff;
+    border: 10px solid #000;
+    border-radius: 10px;
+    -webkit-appearance: none;
   }
-  // Firefox
-  &::-moz-range-thumb {
-    @include thumb;
-  }
-  // IE
-  &::-ms-thumb {
-    @include thumb;
-  }
-
-  // Chrome
   &::-webkit-slider-runnable-track {
     @include track;
   }
+  &.is-green::-webkit-slider-runnable-track {
+    @include green;
+  }
+  &.is-yellow::-webkit-slider-runnable-track {
+    @include yellow;
+  }
+  &.is-red::-webkit-slider-runnable-track {
+    @include red;
+  }
+  /* ========= */
+
   /* Firefox */
+  &::-moz-range-thumb {
+    @include thumb;
+  }
   &::-moz-range-track {
     @include track;
   }
@@ -67,10 +77,16 @@
   &.is-red::-moz-range-track {
     @include red;
   }
-  // IE
+  /* ========= */
+
+  /* IE */
+  &::-ms-thumb {
+    @include thumb;
+  }
   &::-ms-track {
     @include track;
   }
+  /* ========= */
 
   &:focus {
     outline: none;
